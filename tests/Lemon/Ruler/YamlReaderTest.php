@@ -7,7 +7,6 @@ use Ruler\Rule,
     
 use Lemon\Ruler\YamlReader;
 
-
 class YamlReaderTest extends \PHPUnit_Framework_TestCase
 {
     public function setup()

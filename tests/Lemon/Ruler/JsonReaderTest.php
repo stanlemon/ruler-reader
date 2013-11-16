@@ -7,7 +7,6 @@ use Ruler\Rule,
     
 use Lemon\Ruler\JsonReader;
 
-
 class JsonReaderTest extends \PHPUnit_Framework_TestCase
 {
     public function setup()

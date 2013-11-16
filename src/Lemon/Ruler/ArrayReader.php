@@ -10,21 +10,21 @@ use Ruler\Variable;
 class ArrayReader
 {
     protected $operators = [
-        'contains', 
-        'doesNotContain', 
-        'equalTo', 
-        'greaterThan', 
-        'greaterThanOrEqualTo', 
-        'lessThan', 
-        'lessThanOrEqualTo', 
-        'notEqualTo', 
-        'notSameAs', 
+        'contains',
+        'doesNotContain',
+        'equalTo',
+        'greaterThan',
+        'greaterThanOrEqualTo',
+        'lessThan',
+        'lessThanOrEqualTo',
+        'notEqualTo',
+        'notSameAs',
         'sameAs'
     ];
 
     protected $logic = [
-        'and', 
-        'or', 
+        'and',
+        'or',
         'xor'
     ];
 
@@ -48,7 +48,7 @@ class ArrayReader
     /**
      * From an array
      */
-    protected function fromArray($rule) 
+    protected function fromArray($rule)
     {
         $ret = array();
 
@@ -65,9 +65,10 @@ class ArrayReader
 
                 if ($isOperator) {
                     list($left, $right) = $value;
-                    $ret[] = new $class( 
-                        new Variable($left), 
-                        new Variable($right) 
+
+                    $ret[] = new $class(
+                        $this->makeVariable($left),
+                        $this->makeVariable($right)
                     );
                 } else {
                     $ret[] = new $class($this->fromArray($value));
@@ -76,5 +77,14 @@ class ArrayReader
         }
     
         return $ret;
-    }   
+    }
+    
+    protected function makeVariable($var)
+    {
+        if (isset($var['name']) && isset($var['value'])) {
+            return new Variable($var['name'], $var['value']);
+        } else {
+            return new Variable($var);
+        }
+    }
 }

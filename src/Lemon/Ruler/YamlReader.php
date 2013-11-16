@@ -17,11 +17,11 @@ class YamlReader extends ArrayReader
         if (is_file($yaml)) {
             $yaml = file_get_contents($yaml);
         }
-        
+
         if (!($rule = yaml_parse($yaml))) {
             throw new \InvalidArgumentException("Invalid Yaml");
         }
-        
+
         return parent::build(
             $rule
         );

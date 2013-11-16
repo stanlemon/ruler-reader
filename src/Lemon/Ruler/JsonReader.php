@@ -17,8 +17,8 @@ class JsonReader extends ArrayReader
         if (json_last_error() != JSON_ERROR_NONE) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid JSON[%s]: %s", 
-                    json_last_error(), 
+                    "Invalid JSON[%s]: %s",
+                    json_last_error(),
                     json_last_error_msg()
                 )
             );
