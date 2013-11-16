@@ -1,0 +1,19 @@
+{
+    "name": "stan/ruler-reader",
+    "require": {
+        "ruler/ruler": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stan Lemon",
+            "email": "stosh1985@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { 
+            "": "src/"
+        }
+    }
+}
